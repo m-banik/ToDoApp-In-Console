@@ -9,7 +9,10 @@ const handleCommand = ({ add, remove, list }) => {
           ? console.log(`${obj.id} ${obj.content}`.yellow)
           : console.log(`${obj.id} ${obj.content}`.green)
       );
-    } else if ((add && add.length < 8) || (remove && remove.length < 8)) {
+    } else if (
+      (add && String(add).length < 8) ||
+      (remove && String(remove).length < 8)
+    ) {
       console.log("Task content must count at least eight signs".red);
     } else if (add) {
       if (data.findIndex(obj => obj.content === add) > -1)
